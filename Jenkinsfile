@@ -13,7 +13,7 @@ pipeline{
 		
 			
 			
-		}
+		
 		stage("deploy"){
 			steps{
 				sh 'docker-compose build'
