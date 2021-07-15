@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+    server:
+        build: .
+            
+        ports:
+            - "3000:3000"
+        networks:
+            - backend
+    client:
+        build: ../drm-dev/
+            
+        ports:
+            - "80:1234"
+        networks:
+            - backend
+networks:
+    backend:
+        driver: bridge
+
