@@ -27,15 +27,5 @@ pipeline{
 			}
 		}
 	}
-	post{
-		always{
 
-		}
-		success{
-
-		}
-		faliure{
-
-		}
-	}
 }
