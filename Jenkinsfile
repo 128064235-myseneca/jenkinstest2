@@ -3,11 +3,17 @@ pipeline{
 
 	stages{
 		stage("build"){
+			when{
+				expression{
+					CODE_CHANGES == true
+				}
+			}
 			steps{
 				echo 'the application is building'
 			}
 		}
 		stage("test"){
+
 			steps{
 				echo 'the application is testing'
 			}
@@ -18,6 +24,17 @@ pipeline{
 			steps{
 				echo 'the application is deploying'
 			}
+		}
+	}
+	post{
+		always{
+
+		}
+		success{
+
+		}
+		faliure{
+
 		}
 	}
 }
