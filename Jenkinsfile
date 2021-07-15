@@ -10,17 +10,14 @@ pipeline{
 				echo 'the application is building'
 			}
 		}
-		stage("test"){
-
-			steps{
-				echo 'the application is testing'
-			}
+		
 			
 			
 		}
 		stage("deploy"){
 			steps{
-				echo 'the application is deploying'
+				sh 'docker-compose build'
+				sh 'docker-compose up'
 			}
 		}
 	}
