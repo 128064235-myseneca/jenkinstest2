@@ -28,4 +28,4 @@
 https://kutia-software-company.github.io/express-typescript-starter
 
 # jenkinstest2
-# OK test 2 45
+# OK test 2 45 EE
