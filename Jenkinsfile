@@ -13,12 +13,7 @@ pipeline{
 				}
   			}
 		}
-		post {
-			always {
-				sh 'rm .git -rf'
-				sh 'rm subdir/.git -rf'
-  				}
-			}
+		
 		stage("build"){
 	
 			
