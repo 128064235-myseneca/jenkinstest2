@@ -7,6 +7,8 @@ WORKDIR /app
 
 RUN npm install
 
+RUN npm migrate
+
 EXPOSE 3000
 
 CMD ["npm", "run", "dev"]
