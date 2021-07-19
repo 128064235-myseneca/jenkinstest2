@@ -10,6 +10,7 @@ pipeline{
     			git branch: 'master',
     			credentialsId: '1',
    				url: 'https://github.com/joshi-shubham/jenkinsfronttest.git'
+				
 				}
   			}
 		}
@@ -18,7 +19,7 @@ pipeline{
 	
 			
 			steps{
-				echo 'the application is building'
+				echo 'the application is building. ok'
 			}
 		}
 		
