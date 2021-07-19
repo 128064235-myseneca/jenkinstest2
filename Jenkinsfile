@@ -19,6 +19,8 @@ pipeline{
 			
 			steps{
 				echo 'the application is building'
+				sh 'docker-compose build'
+				
 			}
 		}
 		
@@ -27,9 +29,8 @@ pipeline{
 		
 		stage("deploy"){
 			steps{
-				sh 'docker stop drmpipeline_client_1'
-				sh 'docker stop drmpipeline_server_1'
-				sh 'docker-compose build'
+			
+				
 				sh 'docker-compose up -d'
 			}
 		}
