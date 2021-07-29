@@ -1,3 +1,4 @@
+
 # Common build stage
 FROM node:14.15.0
 
