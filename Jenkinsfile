@@ -41,7 +41,7 @@ pipeline{
         }
 			
 			
-			googlechatnotification message: 'DRM Git Push Status - Author: $AUTHOR - Build Number # $BUILD_NUMBER - $BUILD_STATUS', notifyFailure: true, notifyNotBuilt: true, notifySuccess: true, url: 'https://chat.googleapis.com/v1/spaces/AAAAbmiHzsg/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=pp1vQYK9OdbJadXbIqCripBK-ClKhYbZmAs-7Ge1ZN0%3D'	
+			googlechatnotification message: 'DRM Git Push Status - Author: ${commitSha} - Build Number # $BUILD_NUMBER - $BUILD_STATUS', notifyFailure: true, notifyNotBuilt: true, notifySuccess: true, url: 'https://chat.googleapis.com/v1/spaces/AAAAbmiHzsg/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=pp1vQYK9OdbJadXbIqCripBK-ClKhYbZmAs-7Ge1ZN0%3D'	
 	}
 	}
 
