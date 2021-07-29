@@ -1,4 +1,3 @@
-
 pipeline{
 	agent any 
 
@@ -8,9 +7,8 @@ pipeline{
 				sh 'rm client -rf; mkdir client'
     			dir ('client') {
     			git branch: 'master',
-    			credentialsId: '1',
+    			credentialsId: 'git-credentials',
    				url: 'https://github.com/joshi-shubham/jenkinsfronttest.git'
-				
 				}
   			}
 		}
@@ -19,23 +17,27 @@ pipeline{
 	
 			
 			steps{
-
+				echo 'the application is building'
 				sh 'docker-compose build'
-				echo 'the application is building. ok'
-
 			}
 		}
 		
-			
-			
 		
 		stage("deploy"){
 			steps{
 			
 				
+				echo 'the application is deploying'
 				sh 'docker-compose up -d'
 			}
+
 		}
 	}
+	post{
+		always{
+			
+			googlechatnotification message: 'DRM Git Push Status - Author: $AUTHOR - Build Number # $BUILD_NUMBER - $BUILD_STATUS', notifyFailure: true, notifyNotBuilt: true, notifySuccess: true, url: 'https://chat.googleapis.com/v1/spaces/AAAAbmiHzsg/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=pp1vQYK9OdbJadXbIqCripBK-ClKhYbZmAs-7Ge1ZN0%3D'	
+	}
+	}
 
-}	
+}
