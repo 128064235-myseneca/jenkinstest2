@@ -36,7 +36,7 @@ pipeline{
 	post{
 		always{
 			script {
-        		 def commitSha = sh(returnStdout: true, script: 'git log -1').trim()
+				def commitSha = sh(returnStdout: true, script: 'git log -1 | grep Author | awk{print $2} ').trim()
 				echo "${commitSha}"
         }
 			
