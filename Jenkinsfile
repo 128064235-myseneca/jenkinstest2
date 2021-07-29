@@ -35,8 +35,11 @@ pipeline{
 	}
 	post{
 		always{
-			def commitSha = sh(returnStdout: true, script: 'git log -1').trim()
-			echo commitSha
+			script {
+        		 def commitSha = sh(returnStdout: true, script: 'git log -1').trim()
+			echo $commitSha
+        }
+			
 			
 			googlechatnotification message: 'DRM Git Push Status - Author: $AUTHOR - Build Number # $BUILD_NUMBER - $BUILD_STATUS', notifyFailure: true, notifyNotBuilt: true, notifySuccess: true, url: 'https://chat.googleapis.com/v1/spaces/AAAAbmiHzsg/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=pp1vQYK9OdbJadXbIqCripBK-ClKhYbZmAs-7Ge1ZN0%3D'	
 	}
