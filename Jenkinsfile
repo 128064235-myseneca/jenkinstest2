@@ -37,7 +37,7 @@ pipeline{
 		always{
 			script {
         		 def commitSha = sh(returnStdout: true, script: 'git log -1').trim()
-			echo $commitSha
+				echo "${commitSha}"
         }
 			
 			
