@@ -18,7 +18,7 @@ pipeline{
 			
 			steps{
 				echo 'the application is building'
-				sh 'docker-compose build'
+				
 			}
 		}
 		
@@ -28,7 +28,7 @@ pipeline{
 			
 				
 				echo 'the application is deploying'
-				sh 'docker-compose up -d'
+				
 			}
 
 		}
